@@ -71,16 +71,30 @@ writing, the project is configured for:
 
 ## Wiring Notes
 
-The firmware comments in `main.cpp` use this wiring:
+The firmware comments in `main.cpp` use this wiring for one arm:
 
 ```text
-GY-85 / ADXL345
-SDA -> A4
-SCL -> A5
+                 one tentacle / one controller
 
-LED data
-strip data -> pins 5 and 6
+              +-----------------------------+
+              |         Arduino Uno         |
+              |                             |
+              |  A4 / SDA  -----------------+------ SDA   GY-85 / ADXL345
+              |  A5 / SCL  -----------------+------ SCL   accelerometer
+              |  5         -----------------+------ DIN   WS2812B strip A
+              |  6         -----------------+------ DIN   WS2812B strip B
+              |  GND       -----------------+------ GND   sensor and LEDs
+              +-----------------------------+
+
+                         external LED power
+              +5V  -------------------------------- +5V   WS2812B strips
+              GND  -------------------------------- GND   WS2812B strips
 ```
+
+Each of the eight arms repeats this basic layout with its own Arduino, sensor, and LED
+output. The shared point is the larger power system, not the I2C bus.
+
+````
 
 Power wiring is not fully documented in this repository. Treat that as an important
 limitation. A strip with this many LEDs needs a power setup designed for the actual
@@ -103,7 +117,7 @@ cd platformio/gyro-led
 pio run
 pio run --target upload
 pio device monitor
-```
+````
 
 The project uses the `uno` environment in `platformio.ini`. FastLED is declared there as
 a dependency.

@@ -1,0 +1,11 @@
+CompileFlags:
+  CompilationDatabase: .
+  Remove:
+    - -flto*
+    - -mrelax*
+  Add:
+    - --target=avr
+    - -mmcu=atmega2560
+    - -isystem$HOME/.platformio/packages/toolchain-atmelavr/avr/include
+    - -isystem$HOME/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include
+    - -isystem$HOME/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/7.3.0/include-fixed

@@ -1,0 +1,35 @@
+#pragma once
+
+#include <FastLED.h>
+
+#define LED_PIN_1 5
+#define LED_PIN_2 6
+
+#define LED_COUNT 300
+#define LED_TYPE WS2812B
+#define COLOR_ORDER GRB
+
+#define MAX_BRIGHT 255
+#define IDLE_BRIGHT 20
+#define BRIGHT_SMOOTH_SHIFT 3
+#define HUE_SMOOTH_SHIFT 2
+#define DEBUG_SERIAL_MS 5000
+
+#define MAX_CHANGE_FOR_BRIGHTNESS 30
+#define MAX_CHANGE_FOR_HUE 60
+
+#define ACCEL_VALID_MIN -360
+#define ACCEL_VALID_MAX 360
+#define MAX_BAD_ACCEL_READS 5
+
+#define WAVE_MIN_SPEED 1
+#define WAVE_MAX_SPEED 9
+#define WAVE_SPACING 6
+#define WAVE_BASE 48
+
+#define IDLE_TIMEOUT_MS 3000
+#define MIN_MOVEMENT_FOR_ACTIVE 10
+#define IDLE_BLEND_SMOOTH_SHIFT 4
+#define IDLE_WAVE_SPEED 3
+#define RAINBOW_SPACING 3
+#define IDLE_ANIM_BRIGHT 255

@@ -1,0 +1,7 @@
+{
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/gyro-led",
+    "--query-driver=${env:HOME}/.platformio/packages/toolchain-atmelavr/bin/*"
+  ]
+}
